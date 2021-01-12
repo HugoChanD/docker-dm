@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  dm:
+    image: "hugochan/dm:latest"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    container_name: ex_dm
+    environment:
+      - SYSDBA_PWD=123456789
+    ports:
+      - 5236:5236
+    volumes:
+      - ./data:/home/dmdba/data
+  
